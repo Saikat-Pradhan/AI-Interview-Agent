@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import { setUserData } from '../redux/userSlice';
 import {serverURL} from '../App.jsx';
 import axios from 'axios';
+import AuthModel from './AuthModel.jsx';
 
 const Navbar = () => {
   const {userData} = useSelector((state) => state.user);
@@ -15,10 +16,11 @@ const Navbar = () => {
   const [showProfilePopup, setShowProfilePopup] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const [showAuth, setShowAuth] = useState(false);
 
   const handleLogout = async () => {
     try {
-        await axios.get(serverURL + '/api/user/logout', {withCredentials: true});
+        await axios.post(serverURL + '/api/auth/logout', {withCredentials: true});
         dispatch(setUserData(null))
         setShowCreditPopup(false)
         setShowProfilePopup(false)
@@ -35,7 +37,7 @@ const Navbar = () => {
         animate={{opacity: 1, y: 0}}
         transition={{duration: 0.2}}
         className='w-full max-w-6xl bg-white rounded-[24px] shadow-sm border border-gray-200 px-8 py-4 flex justify-between items-center relative'>
-         <div className='flex items-center gap-3 cursor-pointer'>
+         <div onClick={() => (navigate('/'))} className='flex items-center gap-3 cursor-pointer'>
             <div className='bg-black text-white p-2 rounded-lg'>
                <BsRobot size={18}/>
             </div>
@@ -43,7 +45,14 @@ const Navbar = () => {
          </div>
          <div className='flex items-center gap-6 relative'>
             <div className='relative'>
-               <button onClick={()=>{setShowCreditPopup(!showCreditPopup); setShowProfilePopup(false)}} className='flex items-center gap-2 bg-gray-100 px-4 py-2 rounded-full text-md hover:bg-gray-200 transition'>
+               <button onClick={()=>{
+                  if(!userData) {
+                     setShowAuth(true);
+                     return;
+                  }
+                  setShowCreditPopup(!showCreditPopup); 
+                  setShowProfilePopup(false)
+                  }} className='flex items-center gap-2 bg-gray-100 px-4 py-2 rounded-full text-md hover:bg-gray-200 transition cursor-pointer'>
                   <BsCoin size={18} />
                   {userData?userData.user.credits : 0}
                </button>
@@ -53,26 +62,32 @@ const Navbar = () => {
                      <p className='text-sm text-gray-600 mb-4'>
                         Need more credits to continue interviews?
                      </p>
-                     <button onClick={() => navigate('/pricing')} className='w-full bg-black text-white py-2 rounded-lg text-sm'>
+                     <button onClick={() => navigate('/pricing')} className='w-full bg-black text-white py-2 rounded-lg text-sm cursor-pointer'>
                         Buy more credits
                      </button>
                   </div>
                )}
             </div>
             <div className='relative'>
-               <button onClick={()=>{setShowProfilePopup(!showProfilePopup); setShowCreditPopup(false)}} className='w-9 h-9 bg-black text-white rounded-full flex items-center justify-center font-semibold'>
+               <button onClick={()=>{
+                  if(!userData) {
+                     setShowAuth(true);
+                     return;
+                  }
+                  setShowProfilePopup(!showProfilePopup); 
+                  setShowCreditPopup(false)}} className='w-9 h-9 bg-black text-white rounded-full flex items-center justify-center font-semibold cursor-pointer'>
                   {userData? userData.user.name.slice(0,1).toUpperCase() : <FaUserAstronaut size={18} />}
                </button>
 
                {showProfilePopup && (
                   <div className='absolute right-0 mt-3 w-64 bg-white shadow-xl border border-gray-200 rounded-xl p-4 z-50'>
-                     <p className='text-md text-blue-500 font-medium mb-1'>
-                        {userData?.name}
-                     </p>
-                     <button onClick={() => navigate('/interview-history')} className='w-full text-left text-sm py-2 hover:text-black text-gray-600'>
+                     {userData && <p className='text-md text-blue-500 font-medium mb-1'>
+                        {userData.user.name}
+                     </p>}
+                     <button onClick={() => navigate('/interview-history')} className='w-full text-left text-sm py-2 hover:text-black text-gray-600 cursor-pointer'>
                         Interview History
                      </button>
-                     <button onClick={handleLogout} className='w-full text-left text-sm py-2 flex items-center gap-2 text-red-500'>
+                     <button onClick={handleLogout} className='w-full text-left text-sm py-2 flex items-center gap-2 hover:text-red-700 text-red-500 cursor-pointer'>
                         <HiOutlineLogout size={16}/>
                         Logout
                      </button>
@@ -81,6 +96,8 @@ const Navbar = () => {
             </div>
          </div>
       </motion.div>
+
+      {showAuth && <AuthModel onClose={() => setShowAuth(false)} />}
     </div>
   )
 }
