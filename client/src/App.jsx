@@ -5,6 +5,8 @@ import Home from './pages/Home'
 import Auth from './pages/Auth'
 import axios from 'axios';
 import { setUserData } from './redux/userSlice';
+import InterviewPage from './pages/InterviewPage'
+import InterviewReport from './pages/InterviewReport'
 
 export const serverURL = import.meta.env.VITE_SERVER_URL || 'http://localhost:8000';
 
@@ -30,6 +32,8 @@ function App() {
     <Routes>
       <Route path='/' element={<Home/>} />
       <Route path='/auth' element={<Auth/>} />
+      <Route path='/interview' element={<InterviewPage />} />
+      <Route path='/history' element={<InterviewReport />} />
     </Routes>
   )
 }
