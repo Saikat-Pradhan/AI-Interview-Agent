@@ -37,7 +37,7 @@ const Navbar = () => {
         animate={{opacity: 1, y: 0}}
         transition={{duration: 0.2}}
         className='w-full max-w-6xl bg-white rounded-[24px] shadow-sm border border-gray-200 px-8 py-4 flex justify-between items-center relative'>
-         <div onClick={() => (navigate('/'))} className='flex items-center gap-3 cursor-pointer'>
+         <div className='flex items-center gap-3'>
             <div className='bg-black text-white p-2 rounded-lg'>
                <BsRobot size={18}/>
             </div>
@@ -84,7 +84,7 @@ const Navbar = () => {
                      {userData && <p className='text-md text-blue-500 font-medium mb-1'>
                         {userData.user.name}
                      </p>}
-                     <button onClick={() => navigate('/interview-history')} className='w-full text-left text-sm py-2 hover:text-black text-gray-600 cursor-pointer'>
+                     <button onClick={() => navigate('/history')} className='w-full text-left text-sm py-2 hover:text-black text-gray-600 cursor-pointer'>
                         Interview History
                      </button>
                      <button onClick={handleLogout} className='w-full text-left text-sm py-2 flex items-center gap-2 hover:text-red-700 text-red-500 cursor-pointer'>

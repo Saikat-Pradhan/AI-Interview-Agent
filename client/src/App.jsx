@@ -7,6 +7,8 @@ import axios from 'axios';
 import { setUserData } from './redux/userSlice';
 import InterviewPage from './pages/InterviewPage'
 import InterviewReport from './pages/InterviewReport'
+import InterviewHistory from './pages/InterviewHistory';
+import Pricing from './pages/Pricing';
 
 export const serverURL = import.meta.env.VITE_SERVER_URL || 'http://localhost:8000';
 
@@ -33,7 +35,9 @@ function App() {
       <Route path='/' element={<Home/>} />
       <Route path='/auth' element={<Auth/>} />
       <Route path='/interview' element={<InterviewPage />} />
-      <Route path='/history' element={<InterviewReport />} />
+      <Route path='/report/:id' element={<InterviewReport />} />
+      <Route path='/history' element={<InterviewHistory />} />
+      <Route path='/pricing' element={<Pricing />} />
     </Routes>
   )
 }
