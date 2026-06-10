@@ -71,7 +71,7 @@ const Step2Interview = ({ interviewData, onFinish }) => {
       }
 
       // Fallback: first voice (assume female)
-      setSelectedVoice(voices[0]);
+      setSelectedVoice(femaleVoice);
       setVoiceGender("female");
     };
 
@@ -101,7 +101,7 @@ const Step2Interview = ({ interviewData, onFinish }) => {
 
       const utterance = new SpeechSynthesisUtterance(humanText);
 
-      utterance.voice = "male"//selectedVoice;
+      utterance.voice = selectedVoice;
 
       // Human-like pacing
       utterance.rate = 0.92;      // slightly slower than normal
