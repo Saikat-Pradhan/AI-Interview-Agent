@@ -98,7 +98,7 @@ Razorpay (Payments)
 ```
 ai-interview-agent/
 │
-├── client/        # React + TailwindCSS
+├── client/        # Vite + React + TailwindCSS
 │
 └── server/         # Node + Express + MongoDB
     ├── routes/
@@ -119,7 +119,7 @@ cd AI-Interview-Agent
 2️⃣ Backend Setup
 
 ```
-cd backend
+cd server
 npm install
 npm run dev
 ```
@@ -139,9 +139,9 @@ RAZORPAY_SECRET_KEY
 3️⃣ Frontend Setup
 
 ```
-cd frontend
+cd client
 npm install
-npm start
+npm run dev
 ```
 
 Configure .env with:
@@ -156,9 +156,8 @@ VITE_RAZORPAY_ID_KEY
 ## 📈 Future Improvements
 
 - More interview modes (Group, Behavioral, Case Study)
-- Advanced analytics dashboard
-- AI‑driven personalized feedback
-- Leaderboard & gamification
+- Multi‑round interview simulation (HR → Technical → Managerial)
+- Gamification & leaderboards to boost engagement
 
 ---
 
