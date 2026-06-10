@@ -16,7 +16,7 @@ AI Interview Agent is a **MERN + AI powered web application** that simulates rea
 
 ## 🌐 Live Deme
 
-🔗 InterviewIQ.AI Application: https://github.com/Saikat-Pradhan/AI-Interview-Agent.git
+🔗 InterviewIQ.AI Application: https://ai-interview-agent-by-saikat-pradhan.onrender.com
 
 ---
 
