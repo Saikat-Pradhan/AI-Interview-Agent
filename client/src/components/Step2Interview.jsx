@@ -71,15 +71,8 @@ const Step2Interview = ({ interviewData, onFinish }) => {
       }
 
       // Fallback: first voice (assume female)
-       const fallback = voices[0];
-      setSelectedVoice(fallback);
-      setVoiceGender(
-        fallback.name.toLowerCase().includes("david") ||
-        fallback.name.toLowerCase().includes("mark") ||
-        fallback.name.toLowerCase().includes("male")
-          ? "male"
-          : "female"
-      );
+      setSelectedVoice(voices[0]);
+      setVoiceGender("female");
     };
 
     loadVoices();
