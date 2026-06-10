@@ -101,7 +101,7 @@ const Step2Interview = ({ interviewData, onFinish }) => {
 
       const utterance = new SpeechSynthesisUtterance(humanText);
 
-      utterance.voice = selectedVoice;
+      utterance.voice = "male"//selectedVoice;
 
       // Human-like pacing
       utterance.rate = 0.92;      // slightly slower than normal
