@@ -10,7 +10,7 @@ import InterviewReport from './pages/InterviewReport'
 import InterviewHistory from './pages/InterviewHistory';
 import Pricing from './pages/Pricing';
 
-export const serverURL = import.meta.env.VITE_SERVER_URL || 'http://localhost:8000';
+export const serverURL = import.meta.env.VITE_SERVER_URL;
 
 function App() {
 
