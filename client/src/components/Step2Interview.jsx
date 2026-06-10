@@ -81,7 +81,7 @@ const Step2Interview = ({ interviewData, onFinish }) => {
 
   }, []);
 
-  const videoSource = voiceGender === "male" ? maleVideo : femaleVideo
+  const videoSource = (voiceGender === "male") ? maleVideo : femaleVideo
 
   /* ------------------ SPEAK FUNCTION -----------------------*/
   const speakText = (text) => {
