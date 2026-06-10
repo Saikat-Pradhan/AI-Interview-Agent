@@ -64,7 +64,7 @@ const Auth = ({isModel = false}) => {
           onClick={handleGoogleSignIn}
           whileHover={{ opacity: 0.7, scale: 1.03 }}
           whileTap={{ opacity: 1, scale: 0.95 }}
-          className='w-full flex items-center justify-center gap-3 py-3 bg-black text-white rounded-full shadow-md'
+          className='w-full flex items-center justify-center gap-3 py-3 bg-black text-white rounded-full shadow-md cursor-pointer'
         >
           <FcGoogle size={20} />
           Sign in with Google
