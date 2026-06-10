@@ -59,7 +59,7 @@ const Home = () => {
                 className='text-gray-500 mt-6 max-w-2xl mx-auto text-lg'>
                    Role-based mock interviews with smart follow-ups, adaptive difficulty and real-time performance evaluation.
                 </motion.p>
-                <div className='flax flex-wrap justify-center gap-4 mt-10'>
+                <div className='flex flex-wrap justify-center gap-4 mt-10'>
                   <motion.button
                     onClick={() => {
                       if(!userData){
@@ -70,7 +70,7 @@ const Home = () => {
                     }}
                     whileHover={{opacity:0.9, scale:1.03}}
                     whileTap={{opacity:1, scale:0.98}}
-                    className='bg-black text-white px-10 py-3 mr-2 rounded-full hover:opacity-90 transition shadow-md'
+                    className='bg-black text-white px-10 py-3 rounded-full hover:opacity-90 transition shadow-md cursor-pointer'
                   >
                     Start Interview
                   </motion.button>
@@ -84,7 +84,7 @@ const Home = () => {
                     }}
                     whileHover={{opacity:0.9, scale:1.03}}
                     whileTap={{opacity:1, scale:0.98}}
-                    className='border border-gray-300 px-10 py-3 ml-2 rounded-full hover:bg-gray-100 transition'
+                    className='border border-gray-300 px-10 py-3 rounded-full hover:bg-gray-100 transition cursor-pointer'
                   >
                     View History
                   </motion.button>
