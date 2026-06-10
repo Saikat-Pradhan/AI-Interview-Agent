@@ -150,7 +150,7 @@ const Step2Interview = ({ interviewData, onFinish }) => {
         );
 
         await speakText(
-          "I'll ask you a few questions. Just answer naturally. Let's begin."
+          "I'll ask you a few questions. Just answer naturally, and take your time. Let's begin."
         );
 
         setIsIntroPhase(false);
