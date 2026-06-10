@@ -10,8 +10,7 @@
 ![OpenAI](https://img.shields.io/badge/AI-OpenRouter-lightblue?logo=openai)
 ![Razorpay](https://img.shields.io/badge/Payments-Razorpay-darkblue?logo=razorpay)
 
-AI Interview Agent is a **MERN + AI powered web application** that simulates real interview experiences.  
-It analyzes resumes, projects, and skills, generates tailored questions, evaluates answers, and provides detailed reports.
+AI Interview Agent is a **MERN + AI powered web application** that simulates real interview experiences. It analyzes resumes, projects, and skills, generates tailored questions, evaluates answers, and provides detailed reports.
 
 ---
 
@@ -124,9 +123,10 @@ cd backend
 npm install
 npm run dev
 ```
-```
+
 Configure .env with:
 
+```
 PORT
 MONGO_URI
 JWT_SECRET
@@ -143,9 +143,10 @@ cd frontend
 npm install
 npm start
 ```
-```
+
 Configure .env with:
 
+```
 VITE_FIREBASE_API_KEY
 VITE_SERVER_URL
 VITE_RAZORPAY_ID_KEY
