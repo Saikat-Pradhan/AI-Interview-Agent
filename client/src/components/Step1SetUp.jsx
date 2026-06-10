@@ -175,7 +175,7 @@ const Step1SetUp = ({ onStart }) => {
                     whileHover={{ scale: 1.02 }}
                     disabled={analyzing}
                     onClick={(e) => { e.stopPropagation(); handleUploadResume() }}
-                    className='mt-4 disabled:bg-gray-700 bg-emerald-500 text-white px-5 py-2 rounded-lg hover:bg-emerald-600 transition'
+                    className='mt-4 disabled:bg-gray-700 disabled:cursor-not-allowed bg-emerald-500 text-white px-5 py-2 rounded-lg hover:bg-emerald-600 transition cursor-pointer'
                   >
                     {analyzing ? "Analyzing..." : "Analyze Resume"}
                   </motion.button>
@@ -227,7 +227,7 @@ const Step1SetUp = ({ onStart }) => {
               whileTap={{ scale: 0.95 }}
               onClick={handleStart}
               disabled={loading}
-              className='w-full disabled:bg-gray-600 bg-emerald-500 hover:bg-emerald-600 text-white py-3 rounded-full text-lg font-semibold transition duration-300 shadow-md cursor-pointer'
+              className='w-full disabled:bg-gray-600 disabled:cursor-not-allowed bg-emerald-500 hover:bg-emerald-600 text-white py-3 rounded-full text-lg font-semibold transition duration-300 shadow-md cursor-pointer'
               >
                {loading? "Starting..." : "Start Interview"}
               </motion.button>)}

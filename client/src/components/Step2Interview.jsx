@@ -86,7 +86,7 @@ const Step2Interview = ({ interviewData, onFinish }) => {
   /* ------------------ SPEAK FUNCTION -----------------------*/
   const speakText = (text) => {
     return new Promise((resolve) => {
-      
+
       if (!window.speechSynthesis || !selectedVoice) {
         resolve();
         return;
@@ -150,7 +150,7 @@ const Step2Interview = ({ interviewData, onFinish }) => {
         );
 
         await speakText(
-          "I'll ask you a few questions. Just answer naturally, time. Let's begin."
+          "I'll ask you a few questions. Just answer naturally. Let's begin."
         );
 
         setIsIntroPhase(false);
@@ -250,10 +250,10 @@ const Step2Interview = ({ interviewData, onFinish }) => {
 
   const handleSubmitAnswer = async () => {
     if (isSubmitting) return;
-    
+
     stopMic();
     setIsSubmitting(true);
-    
+
     try {
       const result = await axios.post(
         serverURL + "/api/interview/submit-answer",
@@ -297,7 +297,7 @@ const Step2Interview = ({ interviewData, onFinish }) => {
     setIsMicOn(false);
 
     try {
-      const result = await axios.post(serverURL + "/api/interview/finish", {interviewId}, { withCredentials: true });
+      const result = await axios.post(serverURL + "/api/interview/finish", { interviewId }, { withCredentials: true });
 
       onFinish(result.data);
     } catch (error) {
@@ -411,8 +411,8 @@ const Step2Interview = ({ interviewData, onFinish }) => {
             <motion.button
               whileTap={{ scale: 0.95 }}
               onClick={handleSubmitAnswer}
-              disabled={isSubmitting}
-              className='flex-1 disabled:bg-gray-600 bg-emerald-500 hover:bg-emerald-600 text-center text-white py-3 sm:py-4 rounded-2xl shadow-lg hover:opacity-90 hover:cursor-pointer transition font-semibold'
+              disabled={isSubmitting || isAIPlaying}
+              className='flex-1 disabled:bg-gray-600 disabled:cursor-not-allowed bg-emerald-500 hover:bg-emerald-600 text-center text-white py-3 sm:py-4 rounded-2xl shadow-lg hover:opacity-90 hover:cursor-pointer transition font-semibold'
             >
               {isSubmitting ? "Submitting..." : "Submit Answer"}
             </motion.button>
@@ -424,12 +424,16 @@ const Step2Interview = ({ interviewData, onFinish }) => {
             >
               <p className='text-emerald-700 font-medium mb-4'>{feedback}</p>
 
-              <button 
+              <button
                 onClick={handleNext}
-                className='w-full bg-gradient-to-r from-emerald-600 to-teal-500 text-white py-3 rounded-xl shadow-md hover:opacity-90 hover:cursor-pointer transition flex items-center justify-center gap-1'
+                disabled={isAIPlaying}
+                className={`w-full bg-gradient-to-r from-emerald-600 to-teal-500 text-white py-3 rounded-xl shadow-md  hover:opacity-90 hover:cursor-pointer transition flex items-center justify-center gap-1 disabled:cursor-not-allowed disabled:opacity-60`}
               >
-                Next Question <BsArrowRight size={18} />
+                {currentIndex === questions.length - 1
+                  ? "View Your Performance Insights"
+                  : <>Next Question <BsArrowRight size={18} /></>}
               </button>
+
             </motion.div>
           )}
         </div>
