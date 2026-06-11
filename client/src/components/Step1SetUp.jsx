@@ -57,7 +57,7 @@ const Step1SetUp = ({ onStart }) => {
 
       if(userData) {
         dispatch(setUserData({...userData, credits: result.data.creditsLeft}))
-        console.log(result.data)
+        console.log(userData)
         setLoading(false)
         onStart(result.data)
       }
