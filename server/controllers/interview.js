@@ -171,8 +171,9 @@ export const generateQuestions = async (req, res) => {
             });
         }
 
-        user.credits -= 50;
-        await user.save();
+        const updatedUser = await User.findByIdAndUpdate(req.userId, {
+            $dec: { credits: 50 }
+        }, { returnDocument: 'after' })
 
         const interview = await Interview.create({
             userId: user._id,
@@ -189,9 +190,9 @@ export const generateQuestions = async (req, res) => {
 
         return res.json({
             interviewId: interview._id,
-            creditsLeft: user.credits,
             userName: user.name,
-            questions: interview.questions
+            questions: interview.questions,
+            user: updatedUser
         })
     } catch (error) {
         return res.status(500).json({ message: `Failed to create interview ${error}` })

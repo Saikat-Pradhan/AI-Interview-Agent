@@ -81,7 +81,6 @@ const Pricing = () => {
 
         handler: async function (response) {
           const verifypay = await axios.post(serverURL + "/api/payment/verify", response, {withCredentials:true})
-          console.log(verifypay.data)
           dispatch(setUserData(verifypay.data))
           alert("Payment Successful 🎉 Credits Added!")
           navigate("/")
