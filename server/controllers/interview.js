@@ -172,7 +172,7 @@ export const generateQuestions = async (req, res) => {
         }
 
         const updatedUser = await User.findByIdAndUpdate(req.userId, {
-            $dec: { credits: 50 }
+            $inc: { credits: -50 }
         }, { returnDocument: 'after' })
 
         const interview = await Interview.create({
