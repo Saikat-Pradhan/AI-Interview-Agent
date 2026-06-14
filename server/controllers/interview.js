@@ -135,6 +135,22 @@ export const generateQuestions = async (req, res) => {
                 - Keep language simple and conversational.
                 - Questions must feel practical and realistic.
                 - First question is always be, "Please introduce ypurself"
+                - If role is "Technical" then after introduction ask all the tecnical questions
+                - If role if "HR" then ask non-technical questions like (
+                        Strengths, 
+                        Weaknesses, 
+                        Education background, 
+                        Explain projects, 
+                        Share internship experience(If experience is there on Resume), 
+                        Why should we hire you?, 
+                        Salary expectations, 
+                        How do you handle presure?, 
+                        How do you handle rejections?, 
+                        Hobby, 
+                        A time solve any problem, 
+                        How to solve confilcts between two team member?, 
+                        where you see yourself in 5 years?
+                    )
 
                 Difficulty progression:
                 Question 1 → easy
