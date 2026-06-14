@@ -125,7 +125,7 @@ export const generateQuestions = async (req, res) => {
 
                 Generate exactly 5 interview questions.
 
-                Strict Rules:
+                ###Strict Rules:
                 - Each question must contain between 15 and 25 words.
                 - Each question must be a single complete sentence.
                 - Do NOT number the questions.
@@ -134,16 +134,16 @@ export const generateQuestions = async (req, res) => {
                 - Keep language simple and conversational.
                 - Questions must feel practical and realistic.
                 
-                Question Flow:
+                ###Question Flow:
                 Question 1 → always: "Please introduce yourself"
                 Question 2 → easy
                 Question 3 → medium
                 Question 4 → medium
                 Question 5 → hard
 
-                Role Logic:
+                ###Role Logic:
                 - If role = "Technical":
-                  - After introduction, ask technical questions based on skills in resume.
+                  - After introduction, ask questions based on theoritical concepts of skills in resume.
                   - Examples:
                     - If SQL is listed, ask queries or differences (DELETE vs TRUNCATE vs DROP).
                     - If Python is listed, ask a direct technical question about Python (not how it was used in projects).
@@ -167,12 +167,12 @@ export const generateQuestions = async (req, res) => {
                     - Where do you see yourself in 5 years
                   - Last question must be situation-based decision making: give a scenario and ask what decision the candidate would take.
                 
-                Difficulty Progression:
+                ###Difficulty Progression:
                 - Easy → general background or simple HR/technical
                 - Medium → project, internship, or applied skill
                 - Hard → theoretical concept (Technical) or situation-based decision making (HR)
 
-                Context:
+                ###Context:
                 Make Questions based on the candidate's role, experience, interviewMode, projects, skills, and resume details.`
             },
 
