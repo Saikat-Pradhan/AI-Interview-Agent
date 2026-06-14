@@ -134,6 +134,7 @@ export const generateQuestions = async (req, res) => {
                 - One question per line only.
                 - Keep language simple and conversational.
                 - Questions must feel practical and realistic.
+                - First question is always be, "Please introduce ypurself"
 
                 Difficulty progression:
                 Question 1 → easy
@@ -184,7 +185,7 @@ export const generateQuestions = async (req, res) => {
             questions: questionsArray.map((q, index) => ({
                 question: q,
                 difficulty: ["easy", "easy", "medium", "medium", "hard"][index],
-                timelimit: [60, 60, 90, 90, 120][index]
+                timelimit: [120, 70, 90, 90, 120][index]
             }))
         })
 
