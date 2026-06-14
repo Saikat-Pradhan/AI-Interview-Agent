@@ -51,8 +51,6 @@ const Step2Interview = ({ interviewData, onFinish }) => {
       if (femaleVoice) {
         setSelectedVoice(femaleVoice);
         setVoiceGender("female");
-        setResult(femaleVoice.name)
-        console.log("Selected Voice:", femaleVoice.name, "| Language:", femaleVoice.lang, "| Gender: female");
         return;
       }
 
@@ -66,8 +64,6 @@ const Step2Interview = ({ interviewData, onFinish }) => {
       if (maleVoice) {
         setSelectedVoice(maleVoice);
         setVoiceGender("male");
-        setResult(maleVoice.name)
-        console.log("Selected Voice:", maleVoice.name, "| Language:", maleVoice.lang, "| Gender: male");
         return;
       }
 
@@ -75,8 +71,6 @@ const Step2Interview = ({ interviewData, onFinish }) => {
       const fallbackVoice = voices[0];
       setSelectedVoice(fallbackVoice);
       setVoiceGender("female");
-      setResult(fallbackVoice.name)
-      console.log("Selected Voice:", fallbackVoice.name, "| Language:", fallbackVoice.lang, "| Gender: female (fallback)");
     };
 
     loadVoices();
@@ -347,7 +341,6 @@ const Step2Interview = ({ interviewData, onFinish }) => {
           {subtitle && (
             <div className='w-full max-w-md bg-gray-50 border border-gray-200 rounded-xl p-4 shadow-sm'>
               <p className='text-gray-700 text-sm sm:text-base font-medium text-center leading-relaxed'>{subtitle}</p>
-              <p>{result}</p>
             </div>
           )}
 
