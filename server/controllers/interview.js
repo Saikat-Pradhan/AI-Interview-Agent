@@ -121,44 +121,52 @@ export const generateQuestions = async (req, res) => {
             {
                 role: "system",
                 content:
-                    `Speak in simple, natural English as if you are directly talking to the candidate.
+                `Speak in simple, natural English as if you are directly talking to the candidate.
 
                 Generate exactly 5 interview questions.
 
                 Strict Rules:
                 - Each question must contain between 15 and 25 words.
                 - Each question must be a single complete sentence.
-                - Do NOT number them.
-                - Do NOT add explanations.
-                - Do NOT add extra text before or after.
+                - Do NOT number the questions.
+                - Do NOT add explanations or extra text before/after.
                 - One question per line only.
                 - Keep language simple and conversational.
                 - Questions must feel practical and realistic.
-                - First question is always be, "Please introduce ypurself"
-                - If role is "Technical" then after introduction ask all the tecnical questions
-                - If role if "HR" then ask non-technical questions like (
-                        Strengths, 
-                        Weaknesses, 
-                        Education background, 
-                        Explain projects, 
-                        Share internship experience(If experience is there on Resume), 
-                        Why should we hire you?, 
-                        Salary expectations, 
-                        How do you handle presure?, 
-                        How do you handle rejections?, 
-                        Hobby, 
-                        A time solve any problem, 
-                        How to solve confilcts between two team member?, 
-                        where you see yourself in 5 years?
-                    )
-
-                Difficulty progression:
-                Question 1 → easy
+                
+                Question Flow:
+                Question 1 → always: "Please introduce yourself"
                 Question 2 → easy
                 Question 3 → medium
                 Question 4 → medium
                 Question 5 → hard
 
+                Role Logic:
+                - If role = "Technical":
+                  - After introduction, ask technical questions based on skills in resume.
+                  - Example: If SQL is listed, ask queries or differences (DELETE vs TRUNCATE vs DROP).
+                - If role = "HR":
+                  - After introduction, ask non-technical HR questions such as:
+                    - Tell me about your strengths
+                    - Tell me about your weakness
+                    - Explain your education background
+                    - Explain your projects
+                    - Share your internship experience (if listed)
+                    - Why should we hire you?
+                    - What are your salary expectations
+                    - How do you handle pressure or stress
+                    - How do you handle rejections
+                    - Describe your hobbies
+                    - Tell me about a time you solved a problem
+                    - How do you handle team conflicts
+                    - Where do you see yourself in 5 years
+
+                Difficulty Progression:
+                - Easy → general background or simple HR/technical
+                - Medium → project, internship, or applied skill
+                - Hard → problem-solving, conflict handling, or future vision
+                
+                Context:
                 Make Questions based on the candidate's role, experience, interviewMode, projects, skills, and resume details.`
             },
 
