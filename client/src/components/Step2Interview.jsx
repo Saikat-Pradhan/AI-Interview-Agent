@@ -51,6 +51,7 @@ const Step2Interview = ({ interviewData, onFinish }) => {
         );
 
       if (femaleVoice) {
+        console.log("Selected Voice:", chosenVoice.name, "| Language:", chosenVoice.lang, "| Gender:", isMale ? "male" : "female");
         setSelectedVoice(femaleVoice);
         setVoiceGender("female");
         return;
@@ -65,6 +66,7 @@ const Step2Interview = ({ interviewData, onFinish }) => {
         );
 
       if (maleVoice) {
+        console.log("Selected Voice:", chosenVoice.name, "| Language:", chosenVoice.lang, "| Gender:", isMale ? "male" : "female");
         setSelectedVoice(maleVoice);
         setVoiceGender("male");
         return;
@@ -73,7 +75,6 @@ const Step2Interview = ({ interviewData, onFinish }) => {
       // Fallback: first voice (assume female)
       setSelectedVoice(voices[0]);
       setVoiceGender("female");
-      console.log("Selected Voice:", chosenVoice.name, "| Language:", chosenVoice.lang, "| Gender:", isMale ? "male" : "female");
     };
 
     loadVoices();
