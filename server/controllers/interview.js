@@ -144,7 +144,12 @@ export const generateQuestions = async (req, res) => {
                 Role Logic:
                 - If role = "Technical":
                   - After introduction, ask technical questions based on skills in resume.
-                  - Example: If SQL is listed, ask queries or differences (DELETE vs TRUNCATE vs DROP).
+                  - Examples:
+                    - If SQL is listed, ask queries or differences (DELETE vs TRUNCATE vs DROP).
+                    - If Python is listed, ask a direct technical question about Python (not how it was used in projects).
+                    - Ask on other listed skills to evaluate both theoretical and practical understanding.
+                  - Last question must be hard, focusing on a theoretical concept from any skill.
+
                 - If role = "HR":
                   - After introduction, ask non-technical HR questions such as:
                     - Tell me about your strengths
@@ -160,12 +165,13 @@ export const generateQuestions = async (req, res) => {
                     - Tell me about a time you solved a problem
                     - How do you handle team conflicts
                     - Where do you see yourself in 5 years
-
+                  - Last question must be situation-based decision making: give a scenario and ask what decision the candidate would take.
+                
                 Difficulty Progression:
                 - Easy → general background or simple HR/technical
                 - Medium → project, internship, or applied skill
-                - Hard → problem-solving, conflict handling, or future vision
-                
+                - Hard → theoretical concept (Technical) or situation-based decision making (HR)
+
                 Context:
                 Make Questions based on the candidate's role, experience, interviewMode, projects, skills, and resume details.`
             },
