@@ -35,53 +35,49 @@ const Step2Interview = ({ interviewData, onFinish }) => {
   const currentQuestion = questions[currentIndex];
 
   useEffect(() => {
+  const loadVoices = () => {
+    const voices = window.speechSynthesis.getVoices();
+    if (!voices.length) return;
 
-    const loadVoices = () => {
+    // Try known female voices first
+    const femaleVoice = voices.find(v =>
+      v.name.toLowerCase().includes("zira") ||
+      v.name.toLowerCase().includes("samantha") ||
+      v.name.toLowerCase().includes("female")
+    );
 
-      const voices = window.speechSynthesis.getVoices();
-
-      if (!voices.length) return;
-
-      // Try known female voices first
-      const femaleVoice =
-        voices.find(v =>
-          v.name.toLowerCase().includes("zira") ||
-          v.name.toLowerCase().includes("samantha") ||
-          v.name.toLowerCase().includes("female")
-        );
-
-      if (femaleVoice) {
-        console.log("Selected Voice:", chosenVoice.name, "| Language:", chosenVoice.lang, "| Gender:", isMale ? "male" : "female");
-        setSelectedVoice(femaleVoice);
-        setVoiceGender("female");
-        return;
-      }
-
-      // Try known male voices
-      const maleVoice =
-        voices.find(v =>
-          v.name.toLowerCase().includes("david") ||
-          v.name.toLowerCase().includes("mark") ||
-          v.name.toLowerCase().includes("male")
-        );
-
-      if (maleVoice) {
-        console.log("Selected Voice:", chosenVoice.name, "| Language:", chosenVoice.lang, "| Gender:", isMale ? "male" : "female");
-        setSelectedVoice(maleVoice);
-        setVoiceGender("male");
-        return;
-      }
-
-      // Fallback: first voice (assume female)
-      setSelectedVoice(voices[0]);
+    if (femaleVoice) {
+      setSelectedVoice(femaleVoice);
       setVoiceGender("female");
-    };
+      console.log("Selected Voice:", femaleVoice.name, "| Language:", femaleVoice.lang, "| Gender: female");
+      return;
+    }
 
-    loadVoices();
+    // Try known male voices
+    const maleVoice = voices.find(v =>
+      v.name.toLowerCase().includes("david") ||
+      v.name.toLowerCase().includes("mark") ||
+      v.name.toLowerCase().includes("male")
+    );
 
-    window.speechSynthesis.onvoiceschanged = loadVoices;
+    if (maleVoice) {
+      setSelectedVoice(maleVoice);
+      setVoiceGender("male");
+      console.log("Selected Voice:", maleVoice.name, "| Language:", maleVoice.lang, "| Gender: male");
+      return;
+    }
 
-  }, []);
+    // Fallback: first voice (assume female)
+    const fallbackVoice = voices[0];
+    setSelectedVoice(fallbackVoice);
+    setVoiceGender("female");
+    console.log("Selected Voice:", fallbackVoice.name, "| Language:", fallbackVoice.lang, "| Gender: female (fallback)");
+  };
+
+  loadVoices();
+  window.speechSynthesis.onvoiceschanged = loadVoices;
+}, []);
+
 
   const videoSource = voiceGender === "male" ? maleVideo : femaleVideo
 
