@@ -81,7 +81,6 @@ const Step2Interview = ({ interviewData, onFinish }) => {
 
   }, []);
 
-  console.log(selectedVoice)
   const videoSource = voiceGender === "male" ? maleVideo : femaleVideo
 
   /* ------------------ SPEAK FUNCTION -----------------------*/
@@ -345,6 +344,7 @@ const Step2Interview = ({ interviewData, onFinish }) => {
           {subtitle && (
             <div className='w-full max-w-md bg-gray-50 border border-gray-200 rounded-xl p-4 shadow-sm'>
               <p className='text-gray-700 text-sm sm:text-base font-medium text-center leading-relaxed'>{subtitle}</p>
+              <p>{selectedVoice}</p>
             </div>
           )}
 
