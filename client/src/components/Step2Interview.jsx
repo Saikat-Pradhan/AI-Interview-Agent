@@ -43,6 +43,7 @@ const Step2Interview = ({ interviewData, onFinish }) => {
       // Try known female voices first
       const femaleVoice = voices.find(v =>
         v.name.toLowerCase().includes("zira") ||
+        v.name.toLowerCase().includes("Denmark")||
         v.name.toLowerCase().includes("samantha") ||
         v.name.toLowerCase().includes("female")
       );
