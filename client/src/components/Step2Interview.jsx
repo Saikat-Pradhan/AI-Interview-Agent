@@ -73,6 +73,7 @@ const Step2Interview = ({ interviewData, onFinish }) => {
       // Fallback: first voice (assume female)
       setSelectedVoice(voices[0]);
       setVoiceGender("female");
+      console.log("Selected Voice:", chosenVoice.name, "| Language:", chosenVoice.lang, "| Gender:", isMale ? "male" : "female");
     };
 
     loadVoices();
@@ -81,7 +82,6 @@ const Step2Interview = ({ interviewData, onFinish }) => {
 
   }, []);
 
-  console.log(selectedVoice)
   const videoSource = voiceGender === "male" ? maleVideo : femaleVideo
 
   /* ------------------ SPEAK FUNCTION -----------------------*/
