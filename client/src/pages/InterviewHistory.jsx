@@ -56,12 +56,12 @@ const InterviewHistory = () => {
                 >
                     <div className='flex flex-col md:flex-row md:items-center md:justify-between gap-4'>
                         <div>
-                            <div className='flex gap-3'>
+                            <div className='flex gap-3 justify-center'>
                               <h3 className='text-lg font-semibold text-gray-800'>
                                 {item.role}
                               </h3>
                               <div>
-                                <MdDelete className='text-red-600'/>
+                                <MdDelete className='text-red-600 '/>
                               </div>
                             </div>
 
