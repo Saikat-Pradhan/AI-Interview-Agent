@@ -25,7 +25,7 @@ const InterviewHistory = () => {
   const deleteItem = async (id) => {
     try {
       setOpenDeleteId(null)
-      await axios.post(serverURL + `/api/interview/delete/${id}`, { withCredentials: true })
+      await axios.post(serverURL + "/api/interview/delete/" + id, {}, { withCredentials: true })
       setTimeout(() => {
         navigate("/history");
       }, 3000);
