@@ -82,10 +82,10 @@ const InterviewHistory = () => {
                                                     <ul className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white text-center shadow-lg rounded p-3'>
                                                         <p className='text-black font-serif text-[1.2rem]'>Are you sure?</p>
                                                         <div className='flex gap-2 mt-2'>
-                                                            <div className='bg-red-600 rounded-[4px] w-[2cm] text-white' onClick={() => deleteItem(item._id)}>
+                                                            <div className='bg-red-600 rounded-[4px] w-[2cm] text-white' onClick={(e) => {e.stopPropagation(); deleteItem(item._id)}}>
                                                                 <p className='p-1'>Delete</p>
                                                             </div>
-                                                            <div className='bg-black rounded-[4px] w-[2cm] text-white' onClick={() => setDeleteMenuOpen(!deleteMenuOpen)}>
+                                                            <div className='bg-black rounded-[4px] w-[2cm] text-white' onClick={(e) =>{e.stopPropagation(); setDeleteMenuOpen(!deleteMenuOpen)}}>
                                                                 <p className='p-1'>Cancel</p>
                                                             </div>
                                                         </div>
