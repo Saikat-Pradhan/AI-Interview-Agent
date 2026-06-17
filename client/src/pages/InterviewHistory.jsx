@@ -80,7 +80,7 @@ const InterviewHistory = () => {
                                 <p className='text-xl font-bold text-emerald-600'>
                                     {item.finalScore || 0}/10 
                                 </p>
-                                <p className='text-xs text-gray-400'>
+                                <p className='text-xs text-nowrap  text-gray-400'>
                                     Overall Score
                                 </p>
                             </div>
