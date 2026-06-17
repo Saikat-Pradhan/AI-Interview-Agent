@@ -70,7 +70,7 @@ const InterviewHistory = () => {
                                                 />
 
                                                 {openDeleteId === item._id && (
-                                                    <div onClick={(e)=>e.stopPropagation} className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white text-center shadow-lg rounded p-3 z-50'>
+                                                    <div onClick={(e)=>e.stopPropagation} className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 cursor-default bg-white text-center shadow-lg rounded p-3 z-50'>
                                                         <p className='text-black font-serif text-[1.2rem]'>Are you sure?</p>
                                                         <div className='flex gap-2 mt-2 justify-center'>
                                                             <button
