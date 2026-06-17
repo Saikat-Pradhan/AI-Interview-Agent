@@ -75,7 +75,7 @@ const InterviewHistory = () => {
                                                 {item.role}
                                             </h3>
                                             <div>
-                                                <MdDelete className='text-red-600' onClick={() => setDeleteMenuOpen(!deleteMenuOpen)} />
+                                                <MdDelete className='text-red-600' onClick={(e) => {e.stopPropagation(); setDeleteMenuOpen(!deleteMenuOpen)}} />
 
                                                 {/* Delete Confirmation */}
                                                 {deleteMenuOpen && (
