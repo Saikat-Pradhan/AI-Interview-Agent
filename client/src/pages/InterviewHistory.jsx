@@ -7,7 +7,7 @@ import { MdDelete } from "react-icons/md";
 
 const InterviewHistory = () => {
   const [interviews, setInterviews] = useState([])
-  const [openDeleteId, setOpenDeleteId] = useState(null); // track which item is open
+  const [openDeleteId, setOpenDeleteId] = useState(null);
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -25,7 +25,7 @@ const InterviewHistory = () => {
   const deleteItem = async (id) => {
     try {
       setOpenDeleteId(null)
-      await axios.post(serverURL + `/interview/delete/${id}`, {}, { withCredentials: true })
+      await axios.post(serverURL + `/api/interview/delete/${id}`, { withCredentials: true })
       setTimeout(() => {
         navigate("/history");
       }, 3000);
