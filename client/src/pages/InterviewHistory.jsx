@@ -4,6 +4,7 @@ import axios from 'axios'
 import { serverURL } from '../App.jsx'
 import { FaArrowLeft } from 'react-icons/fa'
 import { MdDelete } from "react-icons/md";
+import DeleteConfimation from './DeleteConfimation.jsx'
 
 const InterviewHistory = () => {
   const [interviews, setInterviews] = useState([])
@@ -61,7 +62,7 @@ const InterviewHistory = () => {
                                 {item.role}
                               </h3>
                               <div>
-                                <MdDelete className='text-red-600 '/>
+                                <MdDelete onClick={(e)=> <DeleteConfimation />} className='text-red-600 '/>
                               </div>
                             </div>
 
