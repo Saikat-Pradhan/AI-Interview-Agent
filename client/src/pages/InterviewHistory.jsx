@@ -20,15 +20,13 @@ const InterviewHistory = () => {
       }
     }
     getMyInterviews()
-  }, [])
+  }, [interviews])
 
   const deleteItem = async (id) => {
     try {
       setOpenDeleteId(null)
-      await axios.post(serverURL + "/api/interview/delete/" + id, {}, { withCredentials: true })
-      setTimeout(() => {
-        navigate("/history");
-      }, 3000);
+      const result = await axios.post(serverURL + "/api/interview/delete/" + id, {}, { withCredentials: true })
+      setInterviews(result.data)
     } catch (error) {
       console.error(error)
     }
