@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { serverURL } from '../App.jsx'
 import { FaArrowLeft } from 'react-icons/fa'
+import { MdDelete } from "react-icons/md";
 
 const InterviewHistory = () => {
   const [interviews, setInterviews] = useState([])
@@ -55,9 +56,14 @@ const InterviewHistory = () => {
                 >
                     <div className='flex flex-col md:flex-row md:items-center md:justify-between gap-4'>
                         <div>
-                            <h3 className='text-lg font-semibold text-gray-800'>
+                            <div>
+                              <h3 className='text-lg font-semibold text-gray-800'>
                                 {item.role}
-                            </h3>
+                              </h3>
+                              <div>
+                                <MdDelete />
+                              </div>
+                            </div>
 
                             <p className='text-gray-500 text-sm mt-1'>
                                 {item.experience} <span className='text-bold text-black'>--</span> {item.mode}
