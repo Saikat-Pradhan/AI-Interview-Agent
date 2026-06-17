@@ -62,7 +62,7 @@ const InterviewHistory = () => {
                                 {item.role}
                               </h3>
                               <div>
-                                <MdDelete onClick={(e)=> <DeleteConfimation />} className='text-red-600 '/>
+                                <MdDelete onClick={(e)=> {e.stopPropagation(); <DeleteConfimation />}} className='text-red-600 '/>
                               </div>
                             </div>
 
