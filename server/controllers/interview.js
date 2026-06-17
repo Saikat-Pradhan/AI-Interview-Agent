@@ -464,11 +464,7 @@ export const deleteInterview = async (req, res) => {
 
     await Interview.findByIdAndDelete(req.params.id);
 
-    const interviews = await Interview.find({ userId: req.userId })
-            .sort({ createdAt: -1 })
-            .select("role experience mode finalScore status createdAt")
-
-        return res.status(200).json(interviews)
+    return res.status(200).json({ message: "Interview deleted successfully" });
   } catch (error) {
     return res.status(500).json({ message: `Failed to delete interview: ${error}` });
   }
