@@ -6,6 +6,7 @@ import {
           generateQuestions, 
           submitAnswer, 
           finishInterview, 
+          deleteInterview,
           getMyInterviews, 
           getInterviewReport 
         } from "../controllers/interview.js"
@@ -16,6 +17,7 @@ interviewRouter.post("/resume", isAuth, upload.single("resume"), analyszeResume)
 interviewRouter.post("/generate-questions", isAuth, generateQuestions)
 interviewRouter.post("/submit-answer", isAuth, submitAnswer)
 interviewRouter.post("/finish", isAuth, finishInterview)
+interviewRouter.post("/delete/:id", isAuth, deleteInterview)
 
 interviewRouter.get("/get-interview", isAuth, getMyInterviews)
 interviewRouter.get("/report/:id", isAuth, getInterviewReport)

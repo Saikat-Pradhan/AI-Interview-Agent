@@ -453,3 +453,19 @@ export const getInterviewReport = async (req, res) => {
         return res.status(500).json({ message: `Failed to find current user interviews ${error}` })
     }
 }
+
+export const deleteInterview = async (req, res) => {
+  try {
+    const interview = await Interview.findById(req.params.id);
+
+    if (!interview) {
+      return res.status(404).json({ message: "Interview not found" });
+    }
+
+    await Interview.findByIdAndDelete(req.params.id);
+
+    return res.status(200).json({ message: "Interview deleted successfully" });
+  } catch (error) {
+    return res.status(500).json({ message: `Failed to delete interview: ${error}` });
+  }
+};
