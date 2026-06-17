@@ -74,13 +74,13 @@ const InterviewHistory = () => {
                             <p className='text-black font-serif text-[1.2rem]'>Are you sure?</p>
                             <div className='flex gap-2 mt-2 justify-center'>
                               <button
-                                className='bg-red-600 rounded px-3 py-1 text-white'
+                                className='bg-red-600 rounded px-3 py-1 text-white cursor-pointer'
                                 onClick={(e) => { e.stopPropagation(); deleteItem(item._id) }}
                               >
                                 Delete
                               </button>
                               <button
-                                className='bg-black rounded px-3 py-1 text-white'
+                                className='bg-black rounded px-3 py-1 text-white cursor-pointer'
                                 onClick={(e) => { e.stopPropagation(); setOpenDeleteId(null) }}
                               >
                                 Cancel
