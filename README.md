@@ -20,6 +20,15 @@ AI Interview Agent is a **MERN + AI powered web application** that simulates rea
 
 ---
 
+## 📥 Download App
+
+### To install the mobile version:
+- Navigate to the *Install App* folder in the repository
+- Download the APK file
+- Install it on your Android device to access the app directly
+
+---
+
 ## 🚀 Features
 
 ### 👤 User System
