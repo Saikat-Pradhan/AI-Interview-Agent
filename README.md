@@ -5,6 +5,7 @@
 ![Express](https://img.shields.io/badge/Framework-Express-black?logo=express)
 ![MongoDB](https://img.shields.io/badge/Database-MongoDB-darkgreen?logo=mongodb)
 ![Firebase](https://img.shields.io/badge/Auth-Firebase-orange?logo=firebase)
+![Redux](https://img.shields.io/badge/State-Redux-purple?logo=redux)
 ![JWT](https://img.shields.io/badge/Auth-JWT-purple)
 ![TailwindCSS](https://img.shields.io/badge/UI-TailwindCSS-teal?logo=tailwindcss)
 ![OpenAI](https://img.shields.io/badge/AI-OpenRouter-lightblue?logo=openai)
@@ -99,7 +100,9 @@ Razorpay (Payments)
 ai-interview-agent/
 │
 ├── client/        # Vite + React + TailwindCSS
-│
+│   ├── pages/
+│   ├── components/
+│   └── redux/
 └── server/         # Node + Express + MongoDB
     ├── routes/
     ├── controllers/
